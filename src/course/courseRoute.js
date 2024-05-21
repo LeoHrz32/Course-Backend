@@ -4,7 +4,7 @@ const courseController = require('../course/courseController');
 
 
 // Ruta para crear un nuevo aprendiz
-router.post('/cursos/create', courseController.createCourse);
+router.post('/cursos', courseController.createCourse);
 
 // Ruta para obtener todos los aprendices
 router.get('/cursos', courseController.getAllCourses);

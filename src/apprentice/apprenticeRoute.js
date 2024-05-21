@@ -4,7 +4,7 @@ const apprenticeController = require('../apprentice/apprenticeController');
 
 
 // Ruta para crear un nuevo aprendiz
-router.post('/aprendices/create', apprenticeController.createApprentice);
+router.post('/aprendices', apprenticeController.createApprentice);
 
 // Ruta para obtener todos los aprendices
 router.get('/aprendices', apprenticeController.getAllApprentices);
