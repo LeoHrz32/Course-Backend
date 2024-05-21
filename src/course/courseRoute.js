@@ -4,19 +4,19 @@ const courseController = require('../course/courseController');
 
 
 // Ruta para crear un nuevo aprendiz
-router.post('/Cursos', courseController.createCourse);
+router.post('/cursos/create', courseController.createCourse);
 
 // Ruta para obtener todos los aprendices
-router.get('/Cursos', courseController.getAllCourses);
+router.get('/cursos', courseController.getAllCourses);
 
 // Ruta para obtener un aprendiz por su ID
-router.get('/Cursos/:id',courseController.getCourseById);
+router.get('/cursos/:id',courseController.getCourseById);
 
 
 // Ruta para actualizar un aprendiz existente
-router.put('/Cursos/:id', courseController.updateCourse);
+router.put('/cursos/:id', courseController.updateCourse);
 
 // Ruta para eliminar un aprendiz
-router.delete('/Cursos/:id', courseController.deleteCourse);
+router.delete('/cursos/:id', courseController.deleteCourse);
 
 module.exports = router;

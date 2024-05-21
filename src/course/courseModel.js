@@ -20,7 +20,6 @@ const detailCourse = new mongoose.Schema({
 }, {timestamps :true});
 
 
-
 const courseSchema = new mongoose.Schema({
     name: {
         type: String,

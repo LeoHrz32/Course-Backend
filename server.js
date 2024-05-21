@@ -27,13 +27,13 @@ app.get('/', (req, res) => {
 });
 
 const routeInstructor = require('./src/instructor/instructorRoute')
-app.use('/api', routeInstructor);
+app.use('/fepi', routeInstructor);
 
 const routeAprendiz = require('./src/apprentice/apprenticeRoute')
-app.use('/api', routeAprendiz);
+app.use('/fepi', routeAprendiz);
 
 const routeCourse = require('./src/course/courseRoute')
-app.use('/api', routeCourse);
+app.use('/fepi', routeCourse);
 
 
 

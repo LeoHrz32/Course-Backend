@@ -5,7 +5,7 @@ const router = express.Router();
 const instructorController = require('../instructor/instructorController');
 
 //Ruta para agregar un instructor
-router.post('/instructores',instructorController.createInstructor) 
+router.post('/instructores/create',instructorController.createInstructor) 
 
 //Ruta para listar todos los instructores
 router.get('/instructores',instructorController.getAllInstructors)
