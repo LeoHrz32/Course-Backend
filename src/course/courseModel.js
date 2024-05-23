@@ -53,7 +53,7 @@ const courseSchema = new mongoose.Schema({
             validator: function(value) {
                 // Ejemplo de una validación personalizada
                 return !/[^a-zA-Z0-9\s.,;:()\-]/.test(value);
-            },
+            }, 
             message: 'El lugar contiene caracteres no permitidos'
         }
     },

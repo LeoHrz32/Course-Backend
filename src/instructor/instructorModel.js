@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 const instructorSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: true,
+        required: [true , 'El nombre del instructor es requerido'],
         trim: true,
         match: [/^[A-Za-zÁÉÍÓÚÑñáéíóú\s]+$/, 'Solo se permiten letras y espacios en el campo nombre'], // Elimina espacios en blanco al principio y al final
     },
     lastName: {
         type: String,
         required: true,
-        trim: true,
+        trim: [true , 'El apellido del instructor es requerido'],
         match: [/^[A-Za-zÁÉÍÓÚÑñáéíóú\s]+$/, 'Solo se permiten letras y espacios en el campo apellidos']
     },
     documentType: {
         type: String,
-        required: true,
+        required: [true , 'El tipo de documento es requerido'],
         enum: {
             values: ['Cedula', 'Tarjeta de identidad', 'Otro'],
             message: '{VALUE} no es un tipo de documento válido'
@@ -23,7 +23,7 @@ const instructorSchema = new mongoose.Schema({
     },
     documentNumber: {
         type: Number,
-        required: true,
+        required: [true, 'El campo cedula es requerido'],
         unique: true,
         validate: {
             validator: function (value) {
@@ -34,7 +34,7 @@ const instructorSchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: Number,
-        required: true,
+        required: [true , 'El teléfono es obligatorio'],
         validate: {
             validator: function (value) {
               return /^\d{7,14}$/.test(value); // Validar que el teléfono tenga entre 7 y 14 dígitos
@@ -45,6 +45,17 @@ const instructorSchema = new mongoose.Schema({
     profession: {
         type: String,
         required: true,
+        trim: true,
+        match: [/^[A-Za-zÁÉÍÓÚÑñáéíóú\s]+$/, 'Solo se permiten letras y espacios en el campo profession']
+    },
+    area:{
+        type: String,
+        required: [true , 'El area del instructor es requerida'],
+        match: [/^[A-Za-zÁÉÍÓÚÑñáéíóú\s]+$/, 'Solo se permiten letras y espacios en el campo profession']
+    },
+    thematic:{
+        type: String,
+        required: [true, 'La tematica es requerida'],
         match: [/^[A-Za-zÁÉÍÓÚÑñáéíóú\s]+$/, 'Solo se permiten letras y espacios en el campo profession']
     },
     isAvailable: {
