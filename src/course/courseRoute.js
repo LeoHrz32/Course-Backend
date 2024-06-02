@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const courseController = require('../course/courseController');
-
+    
 
 // Ruta para crear un nuevo aprendiz
 router.post('/cursos/create', courseController.createCourse);

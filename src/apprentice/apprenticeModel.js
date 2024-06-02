@@ -11,11 +11,15 @@ const apprenticeSchema = new mongoose.Schema({
         required: true,
         match: [/^[A-Za-zÁÉÍÓÚÑñáéíóú\s]+$/, 'Solo se permiten letras y espacios en el campo nombre']
     },
+    location: {
+        type: String,
+        required: true,
+    },
     documentType: {
         type: String,
         required: true,
         enum: {
-            values: ['Cedula', 'Tarjeta de identidad', 'Otro'],
+            values: ['Cedula', 'Tarjeta de identidad','Cedula Extranjera'],
             message: '{VALUE} no es un tipo de documento válido'
         }
     },
@@ -41,8 +45,8 @@ const apprenticeSchema = new mongoose.Schema({
           }
     },
     isAvailable: {
-        type: Boolean,
-        default: true
+        type: Number,
+        default: 1
       }
 }, { timestamps: true });
 

@@ -9,15 +9,15 @@ const instructorSchema = new mongoose.Schema({
     },
     lastName: {
         type: String,
-        required: true,
-        trim: [true , 'El apellido del instructor es requerido'],
+        required:[true , 'El apellido del instructor es requerido'],
+        trim: true,
         match: [/^[A-Za-zÁÉÍÓÚÑñáéíóú\s]+$/, 'Solo se permiten letras y espacios en el campo apellidos']
     },
     documentType: {
         type: String,
         required: [true , 'El tipo de documento es requerido'],
         enum: {
-            values: ['Cedula', 'Tarjeta de identidad', 'Otro'],
+            values: ['Cedula', 'Cedula extranjera','Pasaporte'],
             message: '{VALUE} no es un tipo de documento válido'
         }
     },
@@ -27,9 +27,9 @@ const instructorSchema = new mongoose.Schema({
         unique: true,
         validate: {
             validator: function (value) {
-                return /^[0-9]+$/.test(value); // La cédula debe contener solo números positivos
+                return /^[0-9]+$/.test(value) && /^\d{7,14}$/.test(this.documentNumber);
             },
-            message: 'La cédula debe contener solo números'
+            message: 'La cédula debe contener solo números y debe contener entre 7 y 14 dígitos numéricos'
         }// Garantiza que cada número de documento sea único
     },
     phoneNumber: {
@@ -37,10 +37,10 @@ const instructorSchema = new mongoose.Schema({
         required: [true , 'El teléfono es obligatorio'],
         validate: {
             validator: function (value) {
-              return /^\d{7,14}$/.test(value); // Validar que el teléfono tenga entre 7 y 14 dígitos
+                return /^[0-9]+$/.test(value) && /^\d{7,14}$/.test(this.phoneNumber);
             },
-            message: 'El teléfono debe contener entre 7 y 14 dígitos numéricos',
-          }
+            message: 'La cédula debe contener solo números y debe contener entre 7 y 14 dígitos numéricos'
+        }
     },
     profession: {
         type: String,
@@ -55,13 +55,13 @@ const instructorSchema = new mongoose.Schema({
     },
     thematic:{
         type: String,
-        required: [true, 'La tematica es requerida'],
-        match: [/^[A-Za-zÁÉÍÓÚÑñáéíóú\s]+$/, 'Solo se permiten letras y espacios en el campo profession']
+        trim: true,
+        required: [true, 'La tematica es requerida']
     },
     isAvailable: {
-        type: Boolean,
-        default: true
-      }
+        type: Number,
+        default: 1
+    }
 }, { timestamps: true });
 
 const Instructor = mongoose.model('instructors', instructorSchema);

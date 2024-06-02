@@ -3,6 +3,8 @@ const Instructor = require('../instructor/instructorModel');
 // Crear un nuevo instructor
 exports.createInstructor = async (req, res) => {
     try {
+
+
         const { documentNumber } = req.body;
         const instructorExistente = await Instructor.findOne({ documentNumber });
 
@@ -45,6 +47,8 @@ exports.getInstructorById = async (req, res) => {
 // Actualizar un instructor por ID
 exports.updateInstructor = async (req, res) => {
     try {
+
+        
         const updates = Object.keys(req.body);
         const allowedUpdates = ['firstName', 'lastName', 'documentType', 'documentNumber', 'phoneNumber', 'isAvailable', 'area', 'thematic'];
 

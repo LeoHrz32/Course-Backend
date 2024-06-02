@@ -15,11 +15,9 @@ exports.createCourse = async (req, res) => {
     const course = new Course({
         name: req.body.name,
         description: req.body.description,
-        startDate: req.body.startDate,
         location: req.body.location,
         time: req.body.time,
-        state: req.body.state,
-        detail: req.body.detail
+        state: req.body.state
     });
 
     try {
