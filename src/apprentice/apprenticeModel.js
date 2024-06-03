@@ -29,7 +29,7 @@ const apprenticeSchema = new mongoose.Schema({
         unique: true,// Asegura que el número de documento sea único
         validate: {
             validator: function (value) {
-                return /^[0-9]+$/.test(value); // La cédula debe contener solo números positivos
+                return /^[0-9]+$/.test(value);
             },
             message: 'La cédula debe contener solo números'
         }
@@ -39,7 +39,7 @@ const apprenticeSchema = new mongoose.Schema({
         required: true,
         validate: {
             validator: function (value) {
-              return /^\d{7,14}$/.test(value); // Validar que el teléfono tenga entre 7 y 14 dígitos
+              return /^\d{7,14}$/.test(value); 
             },
             message: 'El teléfono debe contener entre 7 y 14 dígitos numéricos',
           }

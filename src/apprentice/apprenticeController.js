@@ -46,7 +46,7 @@ exports.getApprenticeById = async (req, res) => {
 exports.updateApprentice = async (req, res) => {
     try {
         const updates = Object.keys(req.body);
-        const allowedUpdates = ['firstName', 'lastName', 'documentType', 'documentNumber', 'phoneNumber', 'isAvailable'];
+        const allowedUpdates = ['firstName', 'lastName','location', 'documentType', 'documentNumber', 'phoneNumber', 'isAvailable'];
         const isValidOperation = updates.every(update => allowedUpdates.includes(update));
 
         if (!isValidOperation) {
