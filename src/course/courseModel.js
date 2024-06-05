@@ -29,8 +29,8 @@ const courseSchema = new mongoose.Schema({
     state: {
         type: String,
         required: true,
-        enum: ['Terminado', 'EnProceso', 'NoIniciado', 'Cancelado'],
-        default: 'NoIniciado'
+        enum: ['Terminado', 'En Proceso', 'No Iniciado', 'Cancelado'],
+        default: 'No Iniciado'
     }
 }, { timestamps: true });
 
