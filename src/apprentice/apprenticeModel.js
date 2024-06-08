@@ -45,8 +45,10 @@ const apprenticeSchema = new mongoose.Schema({
           }
     },
     isAvailable: {
-        type: Number,
-        default: 1
+        type: String,
+        required : true,
+        enum: ['Disponible','No disponible'],
+        default:'No disponible' 
       }
 }, { timestamps: true });
 

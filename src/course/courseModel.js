@@ -11,11 +11,7 @@ const courseSchema = new mongoose.Schema({
         required: [true, 'La descripcion es requerida'],
         trim: true
     },
-    location: {
-        type: String,
-        required: true,
-        trim: true
-    },
+    
     time: { 
         type: Number,
         required: [true, 'El campo de tiempo del curso es requerido'],
@@ -29,8 +25,8 @@ const courseSchema = new mongoose.Schema({
     state: {
         type: String,
         required: true,
-        enum: ['Terminado', 'En Proceso', 'No Iniciado', 'Cancelado'],
-        default: 'No Iniciado'
+        enum: ['Disponible', 'No disponible'],
+        default: 'No disponible'
     }
 }, { timestamps: true });
 

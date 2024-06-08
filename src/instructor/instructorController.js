@@ -50,7 +50,7 @@ exports.updateInstructor = async (req, res) => {
 
         
         const updates = Object.keys(req.body);
-        const allowedUpdates = ['firstName', 'lastName', 'documentType','documentNumber', 'phoneNumber','profession','isAvailable','area','thematic'];
+        const allowedUpdates = ['firstName', 'lastName','location', 'documentType','documentNumber', 'phoneNumber','profession','isAvailable','area','thematic'];
 
 
         const isValidOperation = updates.every(update => allowedUpdates.includes(update));

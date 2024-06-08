@@ -13,6 +13,10 @@ const instructorSchema = new mongoose.Schema({
         trim: true,
         match: [/^[A-Za-zÁÉÍÓÚÑñáéíóú\s]+$/, 'Solo se permiten letras y espacios en el campo apellidos']
     },
+    location: {
+        type: String,
+        required: true,
+    },
     documentType: {
         type: String,
         required: [true , 'El tipo de documento es requerido'],
@@ -59,8 +63,10 @@ const instructorSchema = new mongoose.Schema({
         required: [true, 'La tematica es requerida']
     },
     isAvailable: {
-        type: Number,
-        default: 1
+        type: String,
+        required : true,
+        enum: ['Disponible','No disponible'],
+        default:'No disponible' 
     }
 }, { timestamps: true });
 
