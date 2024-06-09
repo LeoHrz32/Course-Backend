@@ -65,8 +65,7 @@ const instructorSchema = new mongoose.Schema({
     isAvailable: {
         type: String,
         required : true,
-        enum: ['Disponible','No disponible'],
-        default:'No disponible' 
+        enum: ['Disponible','No disponible']
     }
 }, { timestamps: true });
 
