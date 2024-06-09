@@ -65,7 +65,10 @@ const instructorSchema = new mongoose.Schema({
     isAvailable: {
         type: String,
         required : true,
-        enum: ['Disponible','No disponible']
+        enum: {
+            values: ['Disponible','No disponible'],
+            message: '{VALUE} no es un tipo de documento válido'
+        }
     }
 }, { timestamps: true });
 
