@@ -21,6 +21,6 @@ const programmingSchema = new mongoose.Schema({
 }, { timestamps: true }); // Añadir timestamps para createdAt y updatedAt
 
 // Crear el modelo de programación a partir del esquema
-const Programming = mongoose.model('Programming', programmingSchema);
+const Programming = mongoose.model('programmings', programmingSchema);
 
 module.exports = Programming;
