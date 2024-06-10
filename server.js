@@ -35,6 +35,8 @@ app.use('/fepi', routeAprendiz);
 const routeCourse = require('./src/course/courseRoute')
 app.use('/fepi', routeCourse);
 
+const routeProgramming = require('./src/programming/programmingRoute')
+app.use('/fepi', routeProgramming);
 
 
 
